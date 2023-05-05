@@ -1,0 +1,11 @@
+- name: install softwares
+  hosts: all
+  become: true
+  tasks:
+    - name: install java
+      yum: java-11-openjdk
+      state: latest
+    
+    - name: install git
+      yum: git
+      state: latest
