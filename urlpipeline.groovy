@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ('pull') {
             steps {
-                git 'https://github.com/VishalWarhade/Jenkins.git'
+                /bin/git 'https://github.com/VishalWarhade/Jenkins.git'
             }
         }
         stage ('build') {
