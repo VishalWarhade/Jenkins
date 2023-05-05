@@ -3,9 +3,11 @@
   become: true
   tasks:
     - name: install java
-      yum: java-11-openjdk
-      state: latest
+      yum: 
+       name: java-11-openjdk
+       state: latest
     
     - name: install git
-      yum: git
-      state: latest
+      yum: 
+       name: git
+       state: latest
