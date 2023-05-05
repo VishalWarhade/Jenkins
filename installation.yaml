@@ -12,6 +12,11 @@
        name: git
        state: latest
 
+    - name: install unzip
+      yum:
+        name: unzip
+        state: latest
+
     - name: install maven
       unarchive:
         src: "https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.zip"
