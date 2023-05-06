@@ -3,22 +3,22 @@ pipeline {
     stages {
         stage ('pull') {
             steps {
-               git branch: 'main', url: 'https://github.com/VishalWarhade/studentapp.git'
+                git branch: 'main', url: 'https://github.com/VishalWarhade/Jenkins.git'
             }
         }
         stage ('build') {
             steps {
-                
+                sh 'mvn clean package'
             }
-        } 
+        }
         stage ('test') {
             steps {
-                echo 'test success'
+                echo 'test successs'
             }
         }
         stage ('deploy') {
             steps {
-                echo 'deploy success'
+                echo 'deploy successs'
             }
         }
     }
