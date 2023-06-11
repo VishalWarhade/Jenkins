@@ -13,7 +13,9 @@ pipeline {
         }
         stage ('test') {
             steps {
-                echo " test success"
+                withSonarQubeEnv(installationName: 'sonar-server', credentialsId: 'sonar-token') {
+                    sh ' /opt/apache-maven/bin/mvn sonar:sonar -Dsonar.projectKey=studentapp' 
+                }
             }
         }
         stage ('deploy') {
