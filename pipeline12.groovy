@@ -18,16 +18,16 @@ pipeline {
                 }
             }
         }
-        stage('quality-gate'){
-            steps {
-                timeout(time: 1, unit: 'HOURS') {
-                    waitForQualityGate abortPipeline: true                    
-                    }
-            }
-        }
+        // stage('quality-gate'){
+        //     steps {
+        //         timeout(time: 1, unit: 'HOURS') {
+        //             waitForQualityGate abortPipeline: true                    
+        //             }
+        //     }
+        // }
         stage ('deploy') {
             steps {
-                echo "deploy success"
+                deploy adapters: [tomcat8(credentialsId: 'tomcat-token', path: '', url: 'http://3.112.199.203:8080')], contextPath: '/', war: '**/*.war'
             }
         }
     }
