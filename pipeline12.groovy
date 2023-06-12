@@ -11,13 +11,13 @@ pipeline {
                sh  '/opt/apache-maven/bin/mvn clean package'
             }
         }
-        // stage ('test') {
-        //     steps {
-        //          withSonarQubeEnv(installationName: 'sonar-server', credentialsId: 'sonar-token') {
-        //             sh ' /opt/apache-maven/bin/mvn sonar:sonar -Dsonar.projectKey=studentapp' 
-        //         }
-        //     }
-        // }
+        stage ('test') {
+            steps {
+                 withSonarQubeEnv(installationName: 'sonar-server', credentialsId: 'sonar-token') {
+                    sh ' /opt/apache-maven/bin/mvn sonar:sonar -Dsonar.projectKey=studentapp' 
+                }
+            }
+        }
         // stage('quality-gate'){
         //     steps {
         //         timeout(time: 1, unit: 'HOURS') {
